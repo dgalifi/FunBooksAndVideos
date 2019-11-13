@@ -1,5 +1,6 @@
 ﻿using FunBooksAndVideos.Domain.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FunBooksAndVideos.Domain.Services
 {
@@ -18,10 +19,10 @@ namespace FunBooksAndVideos.Domain.Services
 
         private void ProcessRules(Order order)
         {
-            foreach (var rules in _rules)
+            Parallel.ForEach<IRule>(_rules, (rule) =>
             {
-                rules.Apply(order);
-            }
+                rule.Apply(order);
+            });
 
             // Submit the order
             Submit();

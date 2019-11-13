@@ -1,4 +1,4 @@
-﻿using FunBooksAndVideos.Domain.Models;
+﻿using System;
 
 namespace FunBooksAndVideos.Domain.Services
 {
@@ -11,7 +11,7 @@ namespace FunBooksAndVideos.Domain.Services
     {
         public void ActivateMembership(int itemId)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
