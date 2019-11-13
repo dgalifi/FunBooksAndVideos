@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace FunBooksAndVideos.Domain.Rules
 {
+    // Business Rule 2
     public class ProductRule : IRule
     {
         IShippingService _shippingService;

@@ -18,13 +18,18 @@ namespace FunBooksAndVideos.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IShippingService, ShippingService>();
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<ActivateMembershipRule>();
             services.AddSingleton<ProductRule>();
+
+            // The rule engine is flexible
+            // In order to add a new Rule, you need to:
+            // - create a class derived from IRule
+            // - define the behaviour of the Apply method
+            // - add the class to the below list
 
             services.AddSingleton<IOrderService>(
                 c => new OrderService(new List<IRule> {

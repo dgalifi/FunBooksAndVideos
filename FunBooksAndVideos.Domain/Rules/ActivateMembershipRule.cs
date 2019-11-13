@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace FunBooksAndVideos.Domain.Rules
 {
+    // Business Rule 1
     public class ActivateMembershipRule : IRule
     {
         private readonly IUserService _userService;
